@@ -4,6 +4,7 @@ use namespace::autoclean;
 
 BEGIN { extends 'Catalyst::Controller' }
 
+#Parte estándar del controlador 
 #
 # Sets the actions in this controller to be registered with no prefix
 # so they function identically to actions created in MyApp.pm
@@ -35,6 +36,8 @@ sub index :Path :Args(0) {
     $c->response->body( $c->welcome_message );
 }
 
+# Función por defecto 
+
 =head2 default
 
 Standard 404 error page
@@ -47,6 +50,8 @@ sub default :Path {
     $c->response->status(404);
 }
 
+# Página no encontrada 
+
 =head2 end
 
 Attempt to render a view, if needed.
@@ -54,6 +59,8 @@ Attempt to render a view, if needed.
 =cut
 
 sub end : ActionClass('RenderView') {}
+
+#Final de la subrutina 
 
 =head1 AUTHOR
 
