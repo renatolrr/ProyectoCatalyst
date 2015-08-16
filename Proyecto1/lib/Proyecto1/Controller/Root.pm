@@ -58,7 +58,12 @@ Attempt to render a view, if needed.
 
 =cut
 
-sub end : ActionClass('RenderView') {}
+sub end : ActionClass('RenderView') {
+    my($self,$c)=@_;
+    $c->response->headers->headers-(
+        'Last-Modified' => localtime(),
+   );
+}
 
 #Final de la subrutina 
 
