@@ -1,6 +1,6 @@
 # ProyectoCatalyst
   
-Realizar el ejercicio de quiz en Catalyst. 
+Realizar el ejercicio de quiz en Catalyst perl. 
 
 Creando proyecto1.  
   
