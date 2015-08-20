@@ -6,3 +6,5 @@ Creando proyecto1.
   
 Prueba del servidor.  
   
+Crear una rama para translate.  
+  
