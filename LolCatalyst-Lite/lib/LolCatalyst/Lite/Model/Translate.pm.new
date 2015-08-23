@@ -1,16 +1,8 @@
 package LolCatalyst::Lite::Model::Translate;
 use Moose;
 use namespace::autoclean;
-#utilizando Acme:LOLCAT
-use Acme::LOLCAT ();
+
 extends 'Catalyst::Model';
-
-#añadiendo translate
-sub translate {
-my ($self, $text) = @_;
-return Acme::LOLCAT::translate($text);
-}
-
 
 =head1 NAME
 
@@ -25,7 +17,7 @@ Catalyst Model.
 
 =head1 AUTHOR
 
-renatolrr,,,
+root
 
 =head1 LICENSE
 
