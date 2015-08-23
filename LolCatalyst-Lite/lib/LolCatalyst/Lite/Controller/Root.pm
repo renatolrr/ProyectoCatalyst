@@ -35,6 +35,21 @@ sub index :Path :Args(0) {
     # $c->response->body( $c->welcome_message );
 }
 
+#Añadiendo translate
+sub translate :Local {
+	my ($self, $c) = @_;
+	my $lol = $c->req->body_params->{lol}; # only for a POST request
+	# $c->req->params->{lol} would catch GET or POST
+	# $c->req->query_params would catch GET params only
+	$c->stash(
+		lol => $lol,
+		result => $c->model('Translate')->translate($lol),
+		template => 'index.tt',
+		);
+}
+
+
+
 =head2 default
 
 Standard 404 error page
@@ -53,7 +68,16 @@ Attempt to render a view, if needed.
 
 =cut
 
-sub end : ActionClass('RenderView') {}
+#modificando los errores
+sub end : ActionClass('RenderView') {
+	my ($self, $c) = @_;
+	my $errors = scalar @{$c->error};
+	if ($errors) {
+		$c->res->status(500);
+		$c->res->body('internal server error');
+		$c->clear_errors;
+	}
+}
 
 =head1 AUTHOR
 
