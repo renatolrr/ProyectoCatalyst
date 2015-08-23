@@ -47,12 +47,28 @@ sub translate :Local {
 		template => 'index.tt',
 		);
 }
-
+##Sin autentificación
 sub translate_service : Local {
-my ($self, $c) = @_;
-$c->forward('translate');
-$c->stash->{current_view} = 'Service';
+	my ($self, $c) = @_;
+	$c->forward('translate');
+	$c->stash->{current_view} = 'Service';
 }
+
+##Con autentificación
+#sub translate_service : Local {
+#	my ($self, $c) = @_;
+#	$c->authenticate;
+#	$c->forward('translate');
+#	$c->stash->{current_view} = 'Service';
+#}
+
+##Autentificando
+#sub auto : Private {
+#	my ($self, $c) = @_;
+#	$c->authenticate;
+#}
+
+
 
 
 =head2 default
