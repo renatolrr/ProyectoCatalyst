@@ -1,7 +1,11 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Test::More qw(no_plan);
+
+##use Test::More qw(no_plan);
+
+use Test::More tests => 13;
+
 BEGIN { use_ok 'Catalyst::Test', 'LolCatalyst::Lite' }
 use HTTP::Headers;
 use HTTP::Request::Common;
@@ -38,3 +42,5 @@ ok($response = request($request), 'Request to return JSON');
 ok( $response->is_success, 'Translation request successful 2xx' );
 is( $response->content_type, 'application/json', 'JSON content type' );
 like( $response->content, qr/CHEEZ/, "contains translated string");
+ok(1, 'true');
+ok(0, 'false');
